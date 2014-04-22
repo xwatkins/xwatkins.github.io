@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app="albumApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Album timeline</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="bootstrap-3.1.1-dist/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="bootstrap-3.1.1-dist/css/bootstrap-theme.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/axis.css"/>
+</head>
+<body>
+<div ng-controller="TypeaheadCtrl">
+		<input type="text" ng-model="asyncSelected" placeholder="Artist name" typeahead="artist as artist.name for artist in getArtists($viewValue) | filter:$viewValue" typeahead-loading="loadingArtist" class="form-control">
+		<i ng-show="loadingArtist" class="glyphicon glyphicon-refresh"></i>
+	<div id="container">
+		<h1 id="artist-name"></h1>
+		<timelineviz ></timelineviz>
+		<h3>Biography</h3>
+		<p id="description">Get that from last.fm API?</p>
+	</div>
+</div>
+<script src="libs/jquery-2.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="libs/underscore.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js" charset="utf-8"></script>
+<script src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+<script src="libs/ui-bootstrap-tpls-0.10.0.min.js" charset="utf-8"></script>
+<script src="libs/album-timeline.js" charset="utf-8"></script>
+</body>
+</html>
